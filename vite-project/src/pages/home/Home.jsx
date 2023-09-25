@@ -1,14 +1,19 @@
 import React, { useContext } from "react";
 import Layout from "../../components/layout/Layout";
 import myContext from "../../context/data/myContext";
+import HeroSection from "../../components/heroSection/heroSection";
+import Filter from "../../components/filter/Filter";
+import ProductCard from "../../components/productCard/ProductCard";
+import Track from "../../components/track/Track";
 
 export default function Home() {
-  const context = useContext(myContext);
-  const { name, id } = context;
+  
   return (
     <Layout>
-      <h1>{name}</h1>
-      <h1>{id}</h1>
+      <HeroSection/>
+      <Filter/>
+      <ProductCard/>
+      <Track/>
     </Layout>
   );
 }
