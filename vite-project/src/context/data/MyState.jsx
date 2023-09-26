@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import myContext from "./myContext";
 
 export default function MyState(props) {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState("light");
   const toggleTheme = () => {
     if (theme === "light") {
       setTheme("dark");
@@ -13,7 +13,12 @@ export default function MyState(props) {
     }
   };
 
+  const [loading, setLoading] = useState(false);
+  
+
   return (
-    <myContext.Provider value={{ theme, toggleTheme }}>{props.children}</myContext.Provider>
+    <myContext.Provider value={{ theme, toggleTheme, loading, setLoading }}>
+      {props.children}
+    </myContext.Provider>
   );
 }
