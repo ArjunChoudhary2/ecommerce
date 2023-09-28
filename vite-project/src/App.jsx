@@ -12,8 +12,9 @@ import ProductInfo from "./pages/productInfo/ProductInfo";
 import AddProduct from "./pages/admin/page/AddProduct";
 import UpdateProduct from "./pages/admin/page/UpdateProduct";
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import { Navigate } from "react-router-dom";
+import AllProducts from "./pages/allproducts/AllProducts";
 
 function App() {
   return (
@@ -21,14 +22,50 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/order" element={<UserRoute><Order /></UserRoute>} />
+          <Route
+            path="/order"
+            element={
+              <UserRoute>
+                <Order />
+              </UserRoute>
+            }
+          />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/dashboard" element={<AdminRoute><Dashboard /></AdminRoute>} />
+          <Route
+            path="/dashboard"
+            element={
+              <AdminRoute>
+                <Dashboard />
+              </AdminRoute>
+            }
+          />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/productinfo/:id" element={<ProductInfo />} />
-          <Route path="/addproduct" element={<AdminRoute><AddProduct/></AdminRoute>} />
-          <Route path="/updateproduct" element={<AdminRoute><UpdateProduct /></AdminRoute>} />
+          <Route
+            path="/addproduct"
+            element={
+              <AdminRoute>
+                <AddProduct />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/updateproduct"
+            element={
+              <AdminRoute>
+                <UpdateProduct />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/allproducts"
+            element={
+              <AdminRoute>
+                <AllProducts />
+              </AdminRoute>
+            }
+          />
           <Route path="/*" element={<NoPage />} />
         </Routes>
         <ToastContainer />
@@ -41,24 +78,23 @@ export default App;
 
 //USER
 
-export const UserRoute = ({children}) => {
-  const user = localStorage.getItem('user')
-  if(user){
+export const UserRoute = ({ children }) => {
+  const user = localStorage.getItem("user");
+  if (user) {
     return children;
-  }else{
-    return <Navigate to={'/login'}/>;
+  } else {
+    return <Navigate to={"/login"} />;
   }
-}
+};
 
 //ADMIN
 
-export const AdminRoute = ({children}) =>{
+export const AdminRoute = ({ children }) => {
   //the data coming from local storage is in string to make it as object we use JSON parse
-  const admin = JSON.parse(localStorage.getItem('user'));
-  if(admin.user.email && 'arjun219207choudhary@gmail'){
+  const admin = JSON.parse(localStorage.getItem("user"));
+  if (admin.user.email && "arjun219207choudhary@gmail") {
     return children;
-  }else{
-    return <Navigate to={'/login'}/>;
+  } else {
+    return <Navigate to={"/login"} />;
   }
-
-}
+};

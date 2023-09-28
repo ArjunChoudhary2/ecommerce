@@ -11,6 +11,7 @@ import {
   setDoc,
   doc,
   deleteDoc,
+  getDocs,
 } from "firebase/firestore";
 import { toast } from "react-toastify";
 import { fireDB } from "../../firebase/FireBaseConfig";
@@ -93,10 +94,6 @@ export default function MyState(props) {
     }
   };
 
-  useEffect(() => {
-    getProductData();
-  }, []);
-
   //UPDATE product
 
   const handleUpdate = (item) => {
@@ -109,10 +106,10 @@ export default function MyState(props) {
       await setDoc(doc(fireDB, "products", products.id), products);
       toast.success("Product updated successfully");
       getProductData();
+      setLoading(false);
       setTimeout(() => {
         window.location.href = "/dashboard";
-      },800) ;
-      setLoading(false);
+      }, 800);
     } catch (error) {
       console.log(error);
     }
@@ -130,6 +127,58 @@ export default function MyState(props) {
     }
   };
 
+  //getting Order details
+  const [order, setOrder] = useState([]);
+
+  const getOrderData = async () => {
+    setLoading(true);
+    try {
+      const result = await getDocs(collection(fireDB, "orders"));
+      const ordersArray = [];
+      result.forEach((doc) => {
+        ordersArray.push(doc.data());
+        setLoading(false);
+      });
+      setOrder(ordersArray);
+      console.log(ordersArray);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+
+  const [user, setUser] = useState([]);
+
+  const getUserData = async () => {
+    setLoading(true);
+    try {
+      const result = await getDocs(collection(fireDB, "users"));
+      const usersArray = [];
+      result.forEach((doc) => {
+        usersArray.push(doc.data());
+        setLoading(false);
+      });
+      setUser(usersArray);
+      console.log(usersArray);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getProductData();
+    getOrderData();
+    getUserData();
+  }, []);
+
+  const [searchkey, setSearchkey] = useState("");
+  const [filterType, setFilterType] = useState("");
+  const [filterPrice, setFilterPrice] = useState("");
+  
+
   return (
     <myContext.Provider
       value={{
@@ -145,7 +194,15 @@ export default function MyState(props) {
         setLoading,
         handleUpdate,
         deleteProduct,
-        updateProduct
+        updateProduct,
+        order,
+        user,
+        searchkey,
+        setSearchkey,
+        filterType,
+        setFilterType,
+        filterPrice,
+        setFilterPrice,
       }}
     >
       {props.children}
