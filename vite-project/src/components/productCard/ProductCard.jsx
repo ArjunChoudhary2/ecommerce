@@ -91,7 +91,7 @@ function ProductCard() {
                       </p>
                       <div className=" flex justify-center">
                         <button
-                          onClick={() => addCart(item)}
+                          onClick={(event) => {event.stopPropagation(); addCart(item)}}
                           type="button"
                           className="focus:outline-none text-white bg-red-600 hover:bg-pink-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm w-full  py-2"
                         >
