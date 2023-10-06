@@ -13,6 +13,11 @@ function Filter() {
     setFilterPrice,
     product,
   } = context;
+  const categoryArray = [];
+   product.forEach(element => {
+    categoryArray.push(element.category);
+   });
+   const distinctArray = Array.from(new Set(categoryArray));
 
   return (
     <div>
@@ -73,10 +78,10 @@ function Filter() {
                   color: theme === "dark" ? "white" : "",
                 }}
               >
-                {product.map((item, index) => {
-                  return (
-                    <option key={index} value={item.category}>
-                      {item.category}
+                {distinctArray.map((item, index) => {
+                    return (
+                    <option key={index} value={item}>
+                      {item}
                     </option>
                   );
                 })}

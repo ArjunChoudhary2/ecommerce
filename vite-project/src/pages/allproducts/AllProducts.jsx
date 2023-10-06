@@ -57,7 +57,7 @@ function AllProducts() {
                                         <p className="leading-relaxed mb-3" style={{ color: mode === 'dark' ? 'white' : '' }}>₹{price}</p>
                                         <div className=" flex justify-center">
                                             <button type="button" 
-                                            onClick={()=> addCart(item)}
+                                            onClick={(e)=> {e.stopPropagation(); addCart(item)}}
                                             className="focus:outline-none text-white bg-pink-600 hover:bg-pink-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm w-full  py-2">Add To Cart</button>
 
                                         </div>
