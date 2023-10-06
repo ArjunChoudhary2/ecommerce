@@ -18,6 +18,12 @@ function Filter() {
     categoryArray.push(element.category);
    });
    const distinctArray = Array.from(new Set(categoryArray));
+   
+   const handleReset = () => {
+    setFilterType("");
+    setFilterPrice("");
+    setFilterType("");
+   }
 
   return (
     <div>
@@ -61,6 +67,7 @@ function Filter() {
             <button
               className="px-4 py-2 bg-gray-50hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md"
               style={{ color: theme === "dark" ? "white" : "" }}
+              onClick={handleReset}
             >
               Reset Filter
             </button>

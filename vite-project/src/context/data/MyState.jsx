@@ -140,7 +140,6 @@ export default function MyState(props) {
         setLoading(false);
       });
       setOrder(ordersArray);
-      console.log(ordersArray);
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -160,7 +159,6 @@ export default function MyState(props) {
         setLoading(false);
       });
       setUser(usersArray);
-      console.log(usersArray);
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -177,7 +175,6 @@ export default function MyState(props) {
   const [searchkey, setSearchkey] = useState("");
   const [filterType, setFilterType] = useState("");
   const [filterPrice, setFilterPrice] = useState("");
-  
 
   return (
     <myContext.Provider

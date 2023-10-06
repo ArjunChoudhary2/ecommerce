@@ -21,7 +21,6 @@ function ProductCard() {
   const cartItems = useSelector((state) => state.cart);
 
   const addCart = (product) => {
-    console.log(product);
     dispatch(addToCart(product));
     toast.success("Added to cart");
   };
@@ -50,8 +49,6 @@ function ProductCard() {
             .filter((obj) => obj.price.toLowerCase().includes(filterPrice))
             .map((item, index) => {
               // .filter((obj)=> obj.category.toLowerCase().includes(filterType))
-              console.log(item.category);
-              console.log("tpye" + filterType);
               const { title, price, description, imageUrl,id } = item;
               return (
                 <div key={index}   className="p-4 md:w-1/4  drop-shadow-lg ">
