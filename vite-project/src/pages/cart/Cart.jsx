@@ -21,6 +21,7 @@ function Cart(props) {
   };
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // for smoothly scrolling to top of the page
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
 
@@ -70,7 +71,8 @@ function Cart(props) {
 
     //RAZOR PAY PAYMENT INTEGARTION CODEBLOCK
     var options = {
-      
+      key: "rzp_test_kWL7YqSoejqayF",
+      key_secret: "bnyGFpA3tPbCtcnBPbJPpZa3",
       amount: parseInt(grandTotal * 100),
       currency: "INR",
       order_receipt: "order_rcptid_" + name,

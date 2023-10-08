@@ -41,6 +41,7 @@ export default function MyState(props) {
       month: "short",
       day: "2-digit",
       year: "numeric",
+
     }),
   });
 

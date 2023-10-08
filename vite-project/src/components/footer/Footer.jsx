@@ -28,6 +28,7 @@ export default function Footer() {
                 <a
                   className="text-gray-600 hover:text-gray-800"
                   style={{ color: theme === "dark" ? "white" : "" }}
+                  href="/"
                 >
                   Home
                 </a>
@@ -36,22 +37,17 @@ export default function Footer() {
                 <a
                   className="text-gray-600 hover:text-gray-800"
                   style={{ color: theme === "dark" ? "white" : "" }}
+                  href="/order"
                 >
                   Order
                 </a>
               </li>
+
               <li>
                 <a
                   className="text-gray-600 hover:text-gray-800"
                   style={{ color: theme === "dark" ? "white" : "" }}
-                >
-                  Local For Vocal
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-gray-600 hover:text-gray-800"
-                  style={{ color: theme === "dark" ? "white" : "" }}
+                  href="/cart"
                 >
                   Cart
                 </a>

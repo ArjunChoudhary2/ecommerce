@@ -75,6 +75,28 @@ export default function Navbar() {
                     All Products
                   </Link>
                   {user ? (
+                    ""
+                  ) : (
+                    <div className="flow-root">
+                      <Link
+                        to={"/login"}
+                        style={{ color: theme === "dark" ? "white" : "" }}
+                        className="-m-2 block p-2 font-medium text-gray-900"
+                      >Login</Link>
+                    </div>
+                  )}
+                  {user ? (
+                    ""
+                  ) : (
+                    <div className="flow-root">
+                      <Link
+                        to={"/signup"}
+                        style={{ color: theme === "dark" ? "white" : "" }}
+                        className="-m-2 block p-2 font-medium text-gray-900"
+                      >Signup</Link>
+                    </div>
+                  )}
+                  {user ? (
                     <div className="flow-root">
                       <Link
                         to={"/order"}
@@ -192,6 +214,28 @@ export default function Navbar() {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                  {user ? (
+                    ""
+                  ) : (
+                    <Link
+                      to={"/login"}
+                      className="text-sm font-medium text-gray-700 "
+                      style={{ color: theme === "dark" ? "white" : "" }}
+                    >
+                      Login
+                    </Link>
+                  )}
+                  {user ? (
+                    ""
+                  ) : (
+                    <Link
+                      to={"/signup"}
+                      className="text-sm font-medium text-gray-700 "
+                      style={{ color: theme === "dark" ? "white" : "" }}
+                    >
+                      Sign Up
+                    </Link>
+                  )}
                   <Link
                     to={"/allproducts"}
                     className="text-sm font-medium text-gray-700 "
