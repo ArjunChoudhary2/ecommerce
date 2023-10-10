@@ -72,8 +72,7 @@ function Cart(props) {
 
     //RAZOR PAY PAYMENT INTEGARTION CODEBLOCK
     var options = {
-      key: "rzp_test_kWL7YqSoejqayF",
-      key_secret: "bnyGFpA3tPbCtcnBPbJPpZa3",
+      
       amount: parseInt(grandTotal * 100),
       currency: "INR",
       order_receipt: "order_rcptid_" + name,
