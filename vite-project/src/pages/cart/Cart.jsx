@@ -12,7 +12,7 @@ function Cart(props) {
   const context = useContext(myContext);
   const { theme } = context;
 
-  const cartItems = useSelector((state) => state.cart);
+  const cartItems = useSelector((state) => state.cart.myArray);
   const dispatch = useDispatch();
 
   const deleteCart = (item) => {
@@ -23,6 +23,7 @@ function Cart(props) {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' }); // for smoothly scrolling to top of the page
     localStorage.setItem("cart", JSON.stringify(cartItems));
+    console.log(cartItems);
   }, [cartItems]);
 
   const [total, setTotal] = useState(0);

@@ -18,7 +18,7 @@ function ProductCard() {
   } = context;
   const dispatch = useDispatch();
 
-  const cartItems = useSelector((state) => state.cart);
+  const cartItems = useSelector((state) => state.cart.myArray);
 
   const addCart = (product) => {
     dispatch(addToCart(product));

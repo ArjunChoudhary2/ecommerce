@@ -39,7 +39,7 @@ function ProductInfo() {
 
 
     const dispatch = useDispatch()
-    const cartItems = useSelector((state) => state.cart)
+    const cartItems = useSelector((state) => state.cart.myArray)
     // console.log(cartItems)
 
     // add to cart

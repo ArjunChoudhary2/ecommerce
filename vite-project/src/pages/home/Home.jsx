@@ -10,7 +10,7 @@ import { addToCart, deleteFromCart } from "../../redux/cartSlice";
 
 export default function Home() {
   const dispatch = useDispatch();
-  const cartItem = useSelector((state) => state.cart);
+  const cartItem = useSelector((state) => state.cart.myArray);
 
   const addCartItem = () => {
     dispatch(addToCart("Shirt"));

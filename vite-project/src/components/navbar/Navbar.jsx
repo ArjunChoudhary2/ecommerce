@@ -20,7 +20,7 @@ export default function Navbar() {
     window.location.href = "/login";
   };
 
-  const cartItems = useSelector((state) => state.cart);
+  const cartItems = useSelector((state) => state.cart.myArray);
 
   return (
     <div className="bg-white sticky top-0 z-50  ">
