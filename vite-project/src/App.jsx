@@ -61,9 +61,9 @@ function App() {
           <Route
             path="/allproducts"
             element={
-              <AdminRoute>
+              
                 <AllProducts />
-              </AdminRoute>
+              
             }
           />
           <Route path="/*" element={<NoPage />} />
